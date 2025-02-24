@@ -78,3 +78,7 @@ inventory.placeOrder(601, prod1, 2);
 inventory.listOrders();
 
 console.log(prod1.getDetails());
+
+// Task 5 
+inventory.restockProducts(101, 5);
+console.log(prod1.getDetails());
