@@ -37,3 +37,38 @@ getOrderDetails() {
 const order1 = new Order(501, prod1, 2);
 console.log(order1.getOrderDetails());
 console.log(prod1.getDetails());
+
+// Task 3 
+class inventory {
+  constructor() {
+    this.products = [];
+    this.orders = [];
+  };
+  addProduct(product) {
+    this.products.push(product);
+  };
+  listProducts() {
+    return this.products.forEach(product => console.log(product.getDetails()));
+  };
+  placeOrder(orderId, product, quantity) {
+    if (product.stock >= quantity) {
+      let order = new Order(orderId, product, quantity);
+      this.orders.push(order);
+    } else {
+      return 'Insufficient stock! Stock of ${product.name} is currently ${product.stock}';
+    };
+  };
+  listOrders() {
+    this.orders.forEach(order => console.log(order.getOrderDetails()));
+  };
+  restockProduct(productId, quantity) {
+    let product = this.products.find(product => product.id === productId);
+    if (product) {
+      product.stock += quantity;
+    };
+  };
+};
+
+const inventory = new Inventory();
+inventory.addProduct(prod1);
+inventory.listProducts();
