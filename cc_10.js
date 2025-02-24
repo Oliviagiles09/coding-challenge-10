@@ -72,3 +72,9 @@ class inventory {
 const inventory = new Inventory();
 inventory.addProduct(prod1);
 inventory.listProducts();
+
+// Task 4 
+inventory.placeOrder(601, prod1, 2);
+inventory.listOrders();
+
+console.log(prod1.getDetails());
